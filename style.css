@@ -1,0 +1,147 @@
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  --bg: #000000;
+  --ink: #f5f0e8;
+  --padding: 15px;
+}
+
+.monsieur-la-doulaise-regular {
+  font-family: "Monsieur La Doulaise", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: url("hero-dream.png");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+
+  color: var(--ink);
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  letter-spacing: 1.25px;
+
+  display: flex;
+  padding: var(--padding) var(--padding);
+}
+
+.sidebar {
+  width: 20vw;
+  padding-right: var(--padding);
+}
+
+.saved-notes {
+  padding: var(--padding) 0;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.saved-note {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+
+.saved-note p:nth-child(1) {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.saved-note p:nth-child(2) {
+  opacity: 0.65;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.saved-note p:nth-child(3) {
+  opacity: 0.45;
+}
+
+.saved-note:hover p:nth-child(1) {
+  color: rgb(190, 165, 230);
+}
+
+.create-new {
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-transform: uppercase;
+  border: 1px solid rgb(153, 123, 200);
+  padding: var(--padding);
+  width: 100%;
+  cursor: pointer;
+}
+
+.add-note {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding) 0;
+}
+
+.note-label {
+  font-family: "Monsieur La Doulaise", serif;
+  font-size: 40px;
+  font-weight: 100;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.note-body {
+  width: 50vw;
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  padding-left: var(--padding);
+}
+
+.add-note-header {
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  outline: none;
+  color: inherit;
+  font: inherit;
+  width: 100%;
+  height: 5vh;
+  cursor: text;
+  transition: border-color 0.2s;
+}
+
+.add-note-header:focus {
+  border-bottom-color: rgb(153, 123, 200); /* lilac underline when active */
+}
+
+.add-note-input {
+  background: none;
+  border: none;
+  outline: none;
+  resize: none;
+  padding-top: var(--padding);
+  color: inherit;
+  font: inherit;
+  width: 100%;
+  height: 50vh;
+  cursor: text;
+  transition: border-color 0.2s;
+}
+
+.add-note-buttons button {
+  background: none;
+  border: none;
+  padding: var(--padding);
+  color: rgb(153, 123, 200);
+  cursor: pointer;
+}
+
+.add-note-buttons svg {
+  width: 25px;
+  height: 25px;
+}
