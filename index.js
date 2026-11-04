@@ -81,15 +81,22 @@ function renderNote(index) {
 }
 
 function saveNote() {
-  notes.push({
-    title: document.getElementById("add-note-title").value,
-    content: document.getElementById("add-note-input").value,
-    id: Math.random(),
-    lastUpdated: Date.now(),
-  });
+  if (selectedNoteId === null) {
+    notes.push({
+      title: document.getElementById("add-note-title").value,
+      content: document.getElementById("add-note-input").value,
+      id: Math.random(),
+      lastUpdated: Date.now(),
+    });
+  } else {
+    const index = notes.findIndex((note) => note.id === selectedNoteId);
+    notes[index].title = document.getElementById("add-note-title").value;
+    notes[index].content = document.getElementById("add-note-input").value;
+    notes[index].lastUpdated = Date.now();
+  }
 
   saveNotesToStorage();
-  renderNote(notes.length - 1);
+  renderNotes();
 }
 
 function showSelectedNote(index) {
@@ -110,8 +117,7 @@ function createNewNote() {
 function deleteNote() {
   if (selectedNoteId == null) return;
 
-  const isNote = (note) => note.id === selectedNoteId;
-  const index = notes.findIndex(isNote);
+  const index = notes.findIndex((note) => note.id === selectedNoteId);
   notes.splice(index, 1);
 
   saveNotesToStorage();
