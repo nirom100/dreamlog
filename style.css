@@ -38,7 +38,7 @@ body {
 }
 
 .saved-notes {
-  padding: var(--padding) 0;
+  padding-top: var(--padding);
   font-size: 0.7rem;
   line-height: 1.5;
   letter-spacing: 0.08em;

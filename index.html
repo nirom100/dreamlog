@@ -14,57 +14,25 @@
   </head>
   <body>
     <section class="sidebar" id="sidebar">
-      <button class="create-new">ADD DREAM</button>
-      <div class="sidebar-notes">
-        <div class="saved-notes">
-          <div class="saved-note">
-            <p>The drowned garden</p>
-            <p>
-              Water up to my knees, and violet gladioli growing underneath the
-              surface, still blooming.
-            </p>
-            <p>03.11.2026 · 06:48</p>
-          </div>
-
-          <div class="saved-note">
-            <p>Staircase to nowhere</p>
-            <p>
-              A spiral stair made of paper. Every step I took, it grew another
-              step.
-            </p>
-            <p>01.11.2026 · 07:15</p>
-          </div>
-
-          <div class="saved-note">
-            <p>The orchard at night</p>
-            <p>
-              Moths the size of hands, landing on the fruit. Someone was
-              humming, but there was no one there.
-            </p>
-            <p>29.10.2026 · 05:52</p>
-          </div>
-
-          <div class="saved-note">
-            <p>Mother's kitchen</p>
-            <p>
-              Everything was familiar, except the window looked out onto the
-              sea.
-            </p>
-            <p>26.10.2026 · 08:03</p>
-          </div>
-        </div>
-      </div>
+      <button class="create-new" onclick="createNewNote()">ADD DREAM</button>
+      <div class="saved-notes" id="saved-notes"></div>
     </section>
     <section class="note-body" id="note-body">
       <h2 class="note-label">Dreaming the dream</h2>
       <div class="add-note">
-        <input class="add-note-header" type="text" placeholder="Add title..." />
+        <input
+          id="add-note-title"
+          class="add-note-header"
+          type="text"
+          placeholder="Add title..."
+        />
         <textarea
           class="add-note-input"
+          id="add-note-input"
           placeholder="What did you encounter last night?"
         ></textarea>
         <div class="add-note-buttons">
-          <button id="save-button">
+          <button id="save-button" onclick="saveNote()">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
