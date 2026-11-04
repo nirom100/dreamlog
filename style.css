@@ -32,6 +32,13 @@ body {
   padding: var(--padding) var(--padding);
 }
 
+body:has(.save-button:hover) {
+  background-image: url("hero-dream-2.png");
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
 .sidebar {
   width: 20vw;
   padding-right: var(--padding);
