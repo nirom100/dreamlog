@@ -36,6 +36,8 @@ let notes = [
   },
 ];
 
+let selectedNoteId = null;
+
 function loadNotesFromStorage() {
   const stored = localStorage.getItem("notes");
   if (stored) {
@@ -49,7 +51,12 @@ function saveNotesToStorage() {
 
 function renderInitialNotes() {
   loadNotesFromStorage();
-  for (const [index, value] of notes.entries()) {
+  renderNotes();
+}
+
+function renderNotes() {
+  document.getElementById("saved-notes").innerHTML = "";
+  for (const [index] of notes.entries()) {
     renderNote(index);
   }
 }
@@ -64,8 +71,8 @@ function renderNote(index) {
   const content = document.createElement("p");
   const date = document.createElement("p");
 
-  title.innerHTML = notes[index].title;
-  content.innerHTML = notes[index].content;
+  title.textContent = notes[index].title;
+  content.textContent = notes[index].content;
 
   date.innerHTML = new Date(notes[index].lastUpdated).toLocaleString("de-DE");
 
@@ -77,7 +84,7 @@ function saveNote() {
   notes.push({
     title: document.getElementById("add-note-title").value,
     content: document.getElementById("add-note-input").value,
-    id: crypto.randomUUID,
+    id: Math.random(),
     lastUpdated: Date.now(),
   });
 
@@ -86,13 +93,30 @@ function saveNote() {
 }
 
 function showSelectedNote(index) {
+  const note = notes[index];
+  selectedNoteId = note.id;
+  console.log(selectedNoteId);
+
   document.getElementById("add-note-title").value = notes[index].title;
   document.getElementById("add-note-input").value = notes[index].content;
 }
 
 function createNewNote() {
+  selectedNoteId = null;
   document.getElementById("add-note-title").value = "";
   document.getElementById("add-note-input").value = "";
+}
+
+function deleteNote() {
+  if (selectedNoteId == null) return;
+
+  const isNote = (note) => note.id === selectedNoteId;
+  const index = notes.findIndex(isNote);
+  notes.splice(index, 1);
+
+  saveNotesToStorage();
+  createNewNote();
+  renderNotes();
 }
 
 renderInitialNotes();
