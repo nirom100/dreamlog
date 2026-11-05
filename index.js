@@ -1,3 +1,7 @@
+const savedNotesEl = document.getElementById("saved-notes");
+const titleInput = document.getElementById("add-note-title");
+const contentInput = document.getElementById("add-note-input");
+
 let notes = [
   {
     title: "The flooded library",
@@ -55,14 +59,13 @@ function renderInitialNotes() {
 }
 
 function renderNotes() {
-  document.getElementById("saved-notes").innerHTML = "";
+  savedNotesEl.innerHTML = "";
   for (const [index] of notes.entries()) {
     renderNote(index);
   }
 }
 
 function renderNote(index) {
-  const noteDiv = document.getElementById("saved-notes");
   const noteCard = document.createElement("div");
   noteCard.classList.add("saved-note");
   noteCard.addEventListener("click", () => showSelectedNote(index));
@@ -77,10 +80,15 @@ function renderNote(index) {
   date.innerHTML = new Date(notes[index].lastUpdated).toLocaleString("de-DE");
 
   noteCard.append(title, content, date);
-  noteDiv.appendChild(noteCard);
+  savedNotesEl.appendChild(noteCard);
 }
 
 function saveNote() {
+  if (!titleInput.value || !contentInput.value) {
+    alert("Please enter title and content.");
+    return;
+  }
+
   if (selectedNoteId === null) {
     notes.push({
       title: document.getElementById("add-note-title").value,
