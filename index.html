@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&family=Monsieur+La+Doulaise&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -17,8 +17,10 @@
       <div class="saved-notes" id="saved-notes"></div>
       <button class="create-new" onclick="createNewNote()">ADD DREAM</button>
     </section>
+
     <section class="note-body" id="note-body">
       <h2 class="note-label">dreaming the dream</h2>
+
       <div class="add-note">
         <input
           id="add-note-title"
@@ -31,42 +33,18 @@
           id="add-note-input"
           placeholder="What did you encounter last night?"
         ></textarea>
+
         <div class="add-note-buttons">
           <button class="save-button" id="save-button" onclick="saveNote()">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-              />
-            </svg>
+            SAVE
           </button>
-          <button id="delete-button" onclick="deleteNote()">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18 18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+          <button id="delete-button" onclick="deleteNote()">DISCARD</button>
         </div>
       </div>
     </section>
+
+    <script src="index.js"></script>
+    <script src="scramble.js"></script>
+    <script src="header-scramble.js"></script>
   </body>
-  <script src="index.js"></script>
 </html>
